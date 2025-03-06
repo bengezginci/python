@@ -14,8 +14,8 @@ def Kitle():
     ctypes.windll.user32.LockWorkStation()
     
 def KontrolEt():
+    Kopma=0
     while True:
-        Kopma=0
         #print('countdown started', flush=True)
         
         if(internet_on() is False):
