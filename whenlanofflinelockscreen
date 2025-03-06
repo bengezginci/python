@@ -1,0 +1,32 @@
+#Local ağ bilgisayardan söküldüğünde ekranı kilitleyen python uygulaması
+#When Lan Offline Lock Screen
+
+import time, os, ctypes#, keyboard
+  
+def internet_on():
+    return (lambda a: True if 0 == a.system('ping 192.168.16.1 -n 3 -l 32 -w 3 >nul') else False)(os)
+
+def Kop():
+    print("Sistem kopuk")
+    Kitle()
+    
+def Kitle():
+    ctypes.windll.user32.LockWorkStation()
+    
+def KontrolEt():
+    while True:
+        Kopma=0
+        #print('countdown started', flush=True)
+        
+        if(internet_on() is False):
+            Kopma+=1
+            if Kopma >2:
+                Kop()
+                Kopma=0
+                
+            #print(internet_on(), Kopma)
+            #print(i, end=', ', flush=True)
+        time.sleep(1)
+
+
+KontrolEt()
