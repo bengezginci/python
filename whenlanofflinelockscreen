@@ -7,22 +7,24 @@ def internet_on():
     return (lambda a: True if 0 == a.system('ping 192.168.16.1 -n 3 -l 32 -w 3 >nul') else False)(os)
 
 def Kop():
-    print("Sistem kopuk")
+    #print("Sistem kopuk")
     Kitle()
     
 def Kitle():
     ctypes.windll.user32.LockWorkStation()
     
 def KontrolEt():
-    Kopma=0
+    #Kopma=0
     while True:
         #print('countdown started', flush=True)
         
         if(internet_on() is False):
-            Kopma+=1
-            if Kopma >2:
+            '''Kopma+=1
+            if Kopma >1:
                 Kop()
-                Kopma=0
+                Kopma=0'''
+            Kop()
+            
                 
             #print(internet_on(), Kopma)
             #print(i, end=', ', flush=True)
