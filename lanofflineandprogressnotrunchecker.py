@@ -1,4 +1,3 @@
-#Lan is off or some applications not work than lock the screen
 import time, os, ctypes, subprocess#, keyboard
  
 def internet_on():
@@ -15,7 +14,6 @@ def internet_on():
     #return (lambda a: True if 0 == a.system('ping 192.168.16.1 -n 3 -l 32 -w 3 >nul') else False)(os)
 
 def process_exists(process_name):
-    
     call = 'TASKLIST', '/FI', 'imagename eq %s' % process_name
     # use buildin check_output right away
     #output = subprocess.check_output(call).decode()
@@ -29,6 +27,11 @@ def Calisiyormu(Liste):
     for L in Liste:
         if(process_exists(L) is False):
             Kop()
+    '''for L in Liste:
+        if(process_exists(L)):
+            print(L + " calisiyor")
+        else:
+            print(L +" Calismiyor")'''
 
 
 def Kop():
@@ -52,7 +55,7 @@ def KontrolEt():
             #print(internet_on(), Kopma)
             #print(i, end=', ', flush=True)
 
-        Calisiyormu(['runplugin.exe', 'pcinssui.exe']) #netsupport uygulamaları
+        Calisiyormu(['runplugin.exe', 'StudentUI.exe', 'Runplugin64.exe']) #netsupport uygulamaları
         
         time.sleep(2)
 
