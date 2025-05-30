@@ -1,3 +1,8 @@
+#Lan kablosu çıkarılırsa ve netschool kapatılırsa ekranı kilitle
+#When Lan disconnect and netschool shotdown lock the screen
+#Uzantısını .pyw yaparsanız arkaplanda sessizce çalışır
+#If you run with .pyw extension, it will work in background
+
 import time, os, ctypes, subprocess#, keyboard
  
 def internet_on():
