@@ -1,14 +1,15 @@
 #Lan kablosu çıkarılırsa ve netschool kapatılırsa ekranı kilitle
-#When Lan disconnect and netschool shotdown lock the screen
 #Uzantısını .pyw yaparsanız arkaplanda sessizce çalışır
+#Ctrl+Alt+Z ile program çalışmayı durdurur
+#When Lan disconnect and netschool shotdown lock the screen
 #If you run with .pyw extension, it will work in background
 
-import time, os, ctypes, subprocess#, keyboard
- 
+import ctypes, os, subprocess, time, keyboard
+
 def internet_on():
     try:
         result = subprocess.run(
-                ['ping', '192.168.16.1', '-n', '3', '-l', '32', '-w', '3'],
+                ['ping', '192.168.3.1', '-n', '3', '-l', '32', '-w', '3'],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 creationflags=subprocess.CREATE_NO_WINDOW  # Hide the shell window
@@ -51,6 +52,9 @@ def KontrolEt():
     while True:
         #print('countdown started', flush=True)
        
+        if keyboard.is_pressed('ctrl+alt+z'):
+            #print("Uygulama durduruldu.")
+            break
         if(internet_on() is False):
             '''Kopma+=1
             if Kopma >1:
@@ -62,7 +66,8 @@ def KontrolEt():
 
         Calisiyormu(['runplugin.exe', 'StudentUI.exe', 'Runplugin64.exe']) #netsupport uygulamaları
         
-        time.sleep(2)
+        time.sleep(8)
 
 
 KontrolEt()
+
